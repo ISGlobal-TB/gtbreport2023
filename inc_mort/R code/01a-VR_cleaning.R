@@ -847,6 +847,14 @@ vr[, sum(tb, na.rm=TRUE), by=year]
 
 attr(vr, "timestamp") <- Sys.Date() #set date
 save(vr, file = 'inc_mort/analysis/vr.rda')
+
+# create csv folder if it does not exist
+
+if (!file.exists("inc_mort/analysis/csv")) {
+  dir.create("inc_mort/analysis/csv")
+} 
+
+
 fwrite(vr, file = paste0('inc_mort/analysis/csv/vr_', Sys.Date(), '.csv'))
 
 
